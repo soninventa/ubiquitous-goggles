@@ -1,11 +1,13 @@
 name: Output information
 
 on:
-  workflow_dispatch
+  push:
+  workflow_dispatch:
 
 jobs:
   info:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Print Message
-        run: echo "Hello from output.yml"
+      - name: Output GitHub context
+        run: echo '${{ toJson(github) }}'
